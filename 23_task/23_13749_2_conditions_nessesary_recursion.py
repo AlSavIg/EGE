@@ -4,7 +4,10 @@ def f(x):
         return 0
     elif x == 2:
         return 1
-    elif
+    if x <
+    elif i % 3 == 0:
+        return f(x - 1) + f(x - 2) + f(x // 3)
+
 
 
 start = 2
