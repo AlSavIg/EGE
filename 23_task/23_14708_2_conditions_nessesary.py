@@ -11,16 +11,15 @@ def check_range(a, i):
     return a
 
 
-start = 2
-stop = 12 + 1
-conditions = (8, 10)
+start = 1
+stop = 30 + 1
+conditions = (10, 21)
 
 path_amount = [0] * stop
 path_amount[start] = 1
 
 for i in range(start + 1, stop):
     path_amount[i] = path_amount[check_range(i - 1, i)]\
-                     + path_amount[check_range(i - 2, i)]\
-                     + path_amount[check_range(i / 3, i)]
+                     + path_amount[check_range(i / 2, i)]
 
 print(path_amount[stop - 1])

@@ -1,7 +1,7 @@
 def check_range(a, i):
     global start, stop, condition
-    belong_gap = a in range(start, stop)
-    requir = belong_gap if i <= condition else (belong_gap and a >= condition)
+    belong_segment = a in range(start, stop)
+    requir = belong_segment if i <= condition else (belong_segment and a >= condition)
     a = int(a) if requir else 0
     return a
 
