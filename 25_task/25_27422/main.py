@@ -4,15 +4,13 @@ stop = n + 1
 dividers_dict = {}
 for i in range(start, stop):
     divider = 2
-    dividers_count = 0
     start_item = i
     dividers_dict[start_item] = []
     while divider ** 2 <= i:
         if i % divider == 0:
             i //= divider
-            dividers_count += 1
             dividers_dict[start_item].append(divider)
-            if dividers_count > 2:
+            if len(dividers_dict[start_item]) > 1:
                 break
         else:
             divider += 1
