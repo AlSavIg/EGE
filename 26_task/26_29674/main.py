@@ -1,29 +1,25 @@
-with open("inf_22_10_20_26.txt", "r") as f:
-    flag = False
+with open("inf_22_10_20_26.txt") as f:
     main_list = []
-    border = 50
+    summary = 0
+    flag = False
     for line in f:
+        value = int(line)
         if not flag:
-            num = int(line)
+            num = value
             flag = True
         else:
-            main_list.append(int(line))
-    f.close()
-    main_list.sort()
-    print(max(main_list))
-    for i in range(num):
-        if main_list[i] > border:
-            bord_index = i
-    summary = 0
-    for i in range(bord_index, (num - 1 - bord_index) // 2 + 1):
-        summary += main_list[i]
-    else:
-        max_val = main_list[i - 1]
-    discount = round(summary * 0.75)
-    summary = 0
-    for i in range(bord_index + 1):
-        summary += main_list[i]
-    else:
-        summary += discount
-print(summary, max_val)
+            if value > 50:
+                main_list.append(value)
+            else:
+                summary += value
 
+main_list.sort()
+num = len(main_list)
+for i in range(num):
+    if i < num // 2:
+        summary += main_list[i] * 0.75
+        max_val = main_list[i]
+    else:
+        summary += main_list[i]
+
+print(round(summary), max_val)
