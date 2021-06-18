@@ -3,26 +3,16 @@ def f(S1, S2, turn):
     # + 1 // * 2 // >= 77 // S1 = 7 // Petya first (% 2 == 0): 0, 2 // Vanya second (% 2 == 1): 1, 3
     # P V P V
     # 0 1 2 3
-    if turn == 3:
+    if turn == 3:  # Tester (recursion base)
         if S1 + S2 >= max_sum:
             return True
         else:
             return False
     elif turn == 2:  # Petya
-        # """"
-        # Winner's turn
-        # """
         if S1 >= S2:
             return f(S1 * 2, S2, turn + 1)
         elif S1 < S2:
             return f(S1, S2 * 2, turn + 1)
-        # """
-        # All possible turns
-        # """
-        # return f(S1 + 1, S2, turn + 1) \
-        #        or f(S1, S2 + 1, turn + 1) \
-        #        or f(S1 * 2, S2, turn + 1) \
-        #        or f(S1, S2 * 2, turn + 1)
     elif turn == 1:  # Vanya
         if S1 + 1 + S2 >= max_sum or S1 * 2 + S2 >= max_sum or S1 + S2 * 2 >= max_sum:
             return False
